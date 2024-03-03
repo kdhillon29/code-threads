@@ -3,6 +3,8 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AuthContext from "@/context/AuthContext";
+import getCurrentUser from "./(auth)/actions/getCurrentUser";
+import ToasterContext from "@/context/HotToastContext";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -14,16 +16,18 @@ export const metadata: Metadata = {
   description: "t-shirt startup online store",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await getCurrentUser();
   return (
     <html lang="en">
       <body className={raleway.className}>
         <AuthContext>
-          <Navbar user={undefined} />
+          <ToasterContext />
+          <Navbar user={user!} />
           {children}
         </AuthContext>
       </body>
