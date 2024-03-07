@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import Link from "next/link";
+import { revalidatePath } from "next/cache";
 
 const SignInForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -32,6 +33,7 @@ const SignInForm = () => {
 
       toast.success("Authentication successful");
       router.refresh;
+
       router.push("/");
     } catch (error: any) {
       toast.error(error.message || "Authentication failed");
