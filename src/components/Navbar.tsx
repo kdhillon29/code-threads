@@ -15,7 +15,7 @@ import {
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { TbBracketsAngle } from "react-icons/tb";
-// import CartIcon from "@/app/(shoppingcart)/components/ui/CartIcon";
+import CartIcon from "@/app/(shoppingcart)/components/ui/CartIcon";
 // import WishlistIcon from "@/app/(wishlist)/components/WishlistIcon";
 
 interface NavbarProps {
@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         </ul>
 
         <div className="flex gap-5 text-xl [&>*]:cursor-pointer">
-          {/* <CartIcon /> */}
+          <CartIcon />
           {/* <WishlistIcon /> */}
           <div className="max-md:hidden" onClick={userMenuHandler}>
             <AiOutlineUser />

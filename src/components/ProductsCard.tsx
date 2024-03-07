@@ -4,8 +4,9 @@ import Image from "next/image";
 import { FaHeartCirclePlus, FaEye } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { ProductType } from "@/types/ProductTypes";
-// import AddToCart from "@/app/(shoppingcart)/components/ui/AddToCart";
+import AddToCart from "@/app/(shoppingcart)/components/ui/AddToCart";
 import formatPrice from "@/utils/formatPrice";
+
 // import AddToWishlistButton from "@/app/(wishlist)/components/AddToWishlistButton";
 
 const ProductsCard = ({ product }: { product: ProductType }) => {
@@ -55,7 +56,7 @@ const ProductsCard = ({ product }: { product: ProductType }) => {
         <option value="large">Large</option>
       </select>
 
-      {/* <AddToCart
+      <AddToCart
         name={product.name}
         image={product.image}
         price={product.unit_amount}
@@ -64,7 +65,7 @@ const ProductsCard = ({ product }: { product: ProductType }) => {
         size={selectedSize}
         onClick={!isSizeSelected ? showToast : undefined}
         currency="USD"
-      /> */}
+      />
     </div>
   );
 };
