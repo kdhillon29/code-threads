@@ -38,8 +38,8 @@ const Checkout = ({
         });
         if (response.status === 403) {
           toast.error("Please Sign In");
-          router.push("/sign-in");
           checkoutStore.setCheckout("cart");
+          router.push("/sign-in");
           return;
         }
 
@@ -71,11 +71,11 @@ const Checkout = ({
 
   return (
     clientSecret && (
-      <Suspense fallback="loading...">
-        <Elements options={options} stripe={stripePromise}>
+      <Elements options={options} stripe={stripePromise}>
+        <Suspense fallback="loading...">
           <CheckoutForm clientSecret={clientSecret} />
-        </Elements>
-      </Suspense>
+        </Suspense>
+      </Elements>
     )
   );
 };

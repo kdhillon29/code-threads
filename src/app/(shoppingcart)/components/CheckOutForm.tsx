@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Button from "@/components/ui/Button";
 import formatPrice from "@/utils/formatPrice";
+import { clear } from "console";
 
 const CheckoutForm = ({ clientSecret }: { clientSecret: string }) => {
   const stripe = useStripe();
@@ -19,6 +20,7 @@ const CheckoutForm = ({ clientSecret }: { clientSecret: string }) => {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [orderId, setOrderId] = useState(null);
 
   const { clearCart, totalPrice } = useShoppingCart();
@@ -73,11 +75,18 @@ const CheckoutForm = ({ clientSecret }: { clientSecret: string }) => {
               status: "payment successful",
             }),
           });
+          setIsLoading(false);
+          checkoutStore.setPaymentIntent("");
+          toast.success("Payment Successful");
+          clearCart();
+          router.push("/");
+        } else {
+          console.error(result.error);
+          setError(true);
+          setIsLoading(false);
+
+          toast.error("Payment unsucessful!try again");
         }
-        setIsLoading(false);
-        router.push("/");
-        checkoutStore.setPaymentIntent("");
-        toast.success("Payment Successful");
       });
   };
 
@@ -89,7 +98,7 @@ const CheckoutForm = ({ clientSecret }: { clientSecret: string }) => {
       </h1>
       <Button
         disabled={isLoading || !stripe || !elements}
-        onClick={() => clearCart()}
+        onClick={() => {}}
         type="submit"
       >
         <span>
