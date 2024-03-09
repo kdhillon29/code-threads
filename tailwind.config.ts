@@ -10,6 +10,37 @@ const config: Config = {
   theme: {
     extend: {
       keyframes: {
+        jumpInfinite: {
+          " 0%,100%": {
+            "margin-top": "0px",
+          },
+          "50%": {
+            "margin-top": "30px",
+          },
+          // "100%": {
+          //   "margin-top": "0px",
+          // },
+        },
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        slidein: {
+          from: {
+            opacity: "0",
+            transform: "translateX(-10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
@@ -17,8 +48,11 @@ const config: Config = {
       },
 
       animation: {
+        jumpInfinite: " jumpInfinite 2s ease-in-out infinite",
+        text: "text 3s ease infinite",
         "spin-slow": "spin 3s linear infinite",
         wiggle: "wiggle 2s ease-in-out infinite",
+        slidein: "slidein 3s ease-in-out 200ms",
       },
       backgroundImage: {
         "logo-bg": "url('/assets/bg.svg')",
