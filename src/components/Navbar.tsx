@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <ul className="flex flex-col gap-5">
               {mainLinks.map((link, index) => (
                 <Link key={index} href={link.route}>
-                  <li>{link.label}</li>
+                  <li onClick={() => setOpenMobileMenu(false)}>{link.label}</li>
                 </Link>
               ))}
               {!user ? (
@@ -120,7 +120,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 <>
                   {userLinks.map((link, index) => (
                     <Link key={index} href={link.route}>
-                      <li>{link.label}</li>
+                      <li onClick={() => setOpenMobileMenu(false)}>
+                        {link.label}
+                      </li>
                     </Link>
                   ))}
                   <li className="cursor-pointer" onClick={() => signOut()}>

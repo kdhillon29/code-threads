@@ -31,7 +31,7 @@ export default async function RootLayout({
           <CartContext>
             <ToasterContext />
             <Navbar user={user!} />
-            {children}
+            <div className="min-h-[60vh]">{children} </div>
             <Footer />
           </CartContext>
         </AuthContext>

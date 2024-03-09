@@ -30,11 +30,12 @@ const ProductsCard = ({ product }: { product: ProductType }) => {
         <div className="hidden absolute top-5 items-center justify-center group-hover:flex flex-col gap-3">
           <button className="mx-2 bg-gray-900 border text-white p-2 rounded-md hover:bg-gray-900/75">
             <AddToWishListButton
-              name={product.name}
-              image={product.image}
-              id={product.id}
-              unit_amount={product.unit_amount}
-              quantity={product.quantity}
+              {...product}
+              // name={product.name}
+              // image={product.image}
+              // id={product.id}
+              // unit_amount={product.unit_amount}
+              // quantity={product.quantity}
             />
           </button>
           <button className="mx-2 bg-gray-900 border text-white p-2 rounded-md hover:bg-gray-900/75">
