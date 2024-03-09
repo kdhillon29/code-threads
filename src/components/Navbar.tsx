@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { mainLinks } from "@/../constants";
@@ -16,7 +16,7 @@ import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { TbBracketsAngle } from "react-icons/tb";
 import CartIcon from "@/app/(shoppingcart)/components/ui/CartIcon";
-// import WishlistIcon from "@/app/(wishlist)/components/WishlistIcon";
+import WishListIcon from "@/app/(wishlist)/components/WishListIcon";
 
 interface NavbarProps {
   user: User | undefined;
@@ -34,12 +34,15 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     setOpenUserMenu(!openUserMenu);
   };
   return (
-    <nav>
+    <nav className="sticky  top-0 left-0 right-0 z-50 bg-zinc-200">
       <div className="main-container border-b border-1 flex justify-between items-center py-2 relative">
         <Link href={"/"}>
-          <div className="flex gap-1 items-center text-xl font-medium text-black">
-            <h1>DEV-THREADS</h1>
-            <TbBracketsAngle />
+          <div className="bg-logo-bg p-2 rounded-full flex gap-1  items-center  text-md font-medium text-black">
+            <span className="">
+              CODE-<span className="text-white">THREADS</span>
+            </span>
+
+            <TbBracketsAngle color="white" />
           </div>
         </Link>
 
@@ -53,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
         <div className="flex gap-5 text-xl [&>*]:cursor-pointer">
           <CartIcon />
-          {/* <WishlistIcon /> */}
+          <WishListIcon />
           <div className="max-md:hidden" onClick={userMenuHandler}>
             <AiOutlineUser />
           </div>

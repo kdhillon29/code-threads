@@ -101,9 +101,17 @@ const CheckoutForm = ({ clientSecret }: { clientSecret: string }) => {
         onClick={() => {}}
         type="submit"
       >
-        <span>
-          {isLoading ? <span>Processing...</span> : <span>Pay Now</span>}
-        </span>
+        {isLoading ? (
+          <span className="flex items-center">
+            <svg
+              className="animate-spin h-1 w-1 p-[5px] rounded-sm  mr-1  bg-slate-200"
+              viewBox="0 0 20 20"
+            ></svg>
+            processing...
+          </span>
+        ) : (
+          <span>Pay Now</span>
+        )}
       </Button>
     </form>
   );
