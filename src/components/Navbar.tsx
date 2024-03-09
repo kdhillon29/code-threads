@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
-import { mainLinks } from "@/../constants";
-import { userLinks } from "@/../constants";
+import { mainLinks } from "@/constants";
+import { userLinks } from "@/constants";
 import { User } from "@prisma/client";
 
 //icons

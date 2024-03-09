@@ -6,4 +6,27 @@
   .main-container {
     @apply w-[90%] max-w-[1400px] mx-auto;
   }
+
+  .down-arrow {
+    position: absolute;
+    top: calc(100vh - 60px);
+    left: calc(50% - 14px);
+    width: 10px;
+    height: 30px;
+    border: 2px solid;
+    border-radius: 2px;
+  }
+
+  .down-arrow:after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    left: -10px;
+    width: 16px;
+    height: 16px;
+    border-bottom: 4px solid;
+    border-right: 4px solid;
+    border-radius: 4px;
+    transform: rotateZ(45deg);
+  }
 }

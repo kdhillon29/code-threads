@@ -6,6 +6,7 @@ import AuthContext from "@/context/AuthContext";
 import getCurrentUser from "./(auth)/actions/getCurrentUser";
 import ToasterContext from "@/context/HotToastContext";
 import CartContext from "@/context/CartContext";
+import Footer from "@/components/Footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default async function RootLayout({
             <ToasterContext />
             <Navbar user={user!} />
             {children}
+            <Footer />
           </CartContext>
         </AuthContext>
       </body>
