@@ -28,7 +28,7 @@ const AddToCart = ({
 
   return (
     <button
-      className="border border-gray-700 p-1 hover:bg-slate-100"
+      className="border border-gray-400 rounded-md shadow-md bg-amber-400 text-white p-1 hover:bg-amber-300"
       onClick={() => {
         if (!sizeSelect && onClick) {
           onClick();
