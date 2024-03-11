@@ -3,9 +3,13 @@ import getCurrentUser from "../(auth)/actions/getCurrentUser";
 import Image from "next/image";
 import formatPrice from "@/utils/formatPrice";
 import { RxAvatar } from "react-icons/rx";
+import { redirect } from "next/navigation";
 
 const page = async () => {
   const user = await getCurrentUser();
+  if (!user) {
+    redirect("/sign-in");
+  }
   const orders = await getOrders(user);
   return (
     <>

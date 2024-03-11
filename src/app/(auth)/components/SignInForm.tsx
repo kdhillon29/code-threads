@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useRef } from "react";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
@@ -12,7 +12,10 @@ import { revalidatePath } from "next/cache";
 const SignInForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
+  const callBack: string | null = searchParams.get("callbackUrl");
+  console.log("callcack is", callBack);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,7 +25,8 @@ const SignInForm = () => {
 
     try {
       const result = await signIn("credentials", {
-        redirect: false,
+        redirect: true,
+        callbackUrl: callBack ? `${callBack}` : "/",
         email,
         password,
       });
@@ -32,9 +36,9 @@ const SignInForm = () => {
       }
 
       toast.success("Authentication successful");
-      router.refresh;
+      // router.refresh;
 
-      router.push("/");
+      // router.push("/");
     } catch (error: any) {
       toast.error(error.message || "Authentication failed");
     }
