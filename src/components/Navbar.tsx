@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     setOpenUserMenu(!openUserMenu);
   };
   return (
-    <nav className="sticky  top-0 left-0 right-0 z-50 bg-zinc-200">
+    <nav className="sticky max-sm:sticky top-0 left-0 right-0 z-50 bg-zinc-200">
       <div className="main-container border-b border-1 flex justify-between items-center py-2 relative">
         <Link href={"/"}>
           <div className="bg-logo-bg p-2 rounded-full flex gap-1  items-center  text-md font-medium text-black">

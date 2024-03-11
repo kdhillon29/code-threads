@@ -11,7 +11,7 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section className="mt-2">
-      <div className="main-container h-[50vh] max-sm:h-[40vh]">
+      <div className="main-container h-[50vh] max-sm:h-[20vh]">
         <Swiper
           modules={[Autoplay, Pagination]}
           autoplay={{ delay: 5000 }}
@@ -44,7 +44,7 @@ const Hero = () => {
             />
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative h-full max-sm:h-1/2 w-full">
+            <div className="relative h-full  w-full">
               <div className="absolute  py-4 px-6 border-r-2 border-r-amber-200 rounded-r-full top-0 left-0 w-3/5 h-full bg-gray-600/90 z-10">
                 <p className=" animate-wiggle text-4xl max-sm:text-2xl mt-12 max-sm:mt-4 text-pretty  text-white font-bold">
                   Online Sale!
